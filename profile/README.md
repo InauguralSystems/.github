@@ -2,7 +2,7 @@
 
 Creators of **EigenScript** — a zero-dependency C-implemented programming language with native observer semantics, training a model on its own code.
 
-**Currently shipping · v0.11.8** — a reversible runtime: a trace tape replays any run byte-for-byte, temporal interrogatives query prior state, and the graphical debugger steps backward in time. The bytecode VM's JIT compiles hot loops into native thunks, and the entire test suite runs leak-clean under AddressSanitizer in CI.
+**Currently shipping · v0.12.0** — a JIT performance release. Stage 5's inline fast-path matrix and per-chunk call-env recycling roughly doubled a DMG-shaped workload (2.06×, now beating the interpreter by ~45%), and the real Game Boy ROM runs at ~5.5 MHz — past original hardware (4.19 MHz). The runtime stays reversible (byte-for-byte trace replay, temporal interrogatives, step-back debugging) and leak-clean under AddressSanitizer in CI.
 
 [inauguralsystems.com](https://inauguralsystems.com) · [@inauguralsys on X](https://x.com/inauguralsys) · [contact@inauguralsystems.com](mailto:contact@inauguralsystems.com)
 
