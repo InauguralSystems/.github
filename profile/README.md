@@ -2,7 +2,7 @@
 
 Creators of **EigenScript** — a zero-dependency C-implemented programming language with native observer semantics, training a model on its own code.
 
-**Currently shipping · v0.11.2** — stack bytecode VM with computed-goto dispatch, NaN-boxed slots across stack and environments, and a chunk-level JIT emitting native code for hot opcodes.
+**Currently shipping · v0.11.8** — a reversible runtime: a trace tape replays any run byte-for-byte, temporal interrogatives query prior state, and the graphical debugger steps backward in time. The bytecode VM's JIT compiles hot loops into native thunks, and the entire test suite runs leak-clean under AddressSanitizer in CI.
 
 [inauguralsystems.com](https://inauguralsystems.com) · [@inauguralsys on X](https://x.com/inauguralsys) · [contact@inauguralsystems.com](mailto:contact@inauguralsystems.com)
 
