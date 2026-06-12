@@ -24,9 +24,9 @@ Supporting:
 
 ---
 
-### Why the repos are private
+### Why EigenScript is open
 
-Pre-1.0 work moves fastest when bugs can be fixed at the root instead of papered over for downstream users. Keeping the source private removes the obligation to preserve old behavior — every issue gets corrected where it actually lives, the API tightens, and the language gets cleaner with each version. When EigenScript is ready to support contracts that can be kept, it will go public.
+Through pre-1.0 the source stayed private on purpose: bugs got fixed at the root instead of papered over for downstream users, with no obligation to preserve old behavior. Every issue was corrected where it actually lived, the API tightened, and the language got cleaner with each version. That season is now historical — EigenScript is **public**. Read the source, build it yourself, and run the same binary that serves the landing page.
 
 ---
 
