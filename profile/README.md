@@ -2,7 +2,7 @@
 
 Creators of **EigenScript** — a zero-dependency C-implemented programming language with native observer semantics, training a model on its own code.
 
-**Currently shipping · v0.12.0** — a JIT performance release. Stage 5's inline fast-path matrix and per-chunk call-env recycling roughly doubled a DMG-shaped workload (2.06×, now beating the interpreter by ~45%), and the real Game Boy ROM runs at ~5.5 MHz — past original hardware (4.19 MHz). The runtime stays reversible (byte-for-byte trace replay, temporal interrogatives, step-back debugging) and leak-clean under AddressSanitizer in CI.
+**Currently shipping · v0.13.0** — a language-features release. Errors are now structured values: `throw of {…}` carries data through to `catch`, and uncaught failures print a full stack trace. `import` loads user modules, and the toolchain gained VS Code + Vim extensions, working LSP diagnostics, and an executable spec (`docs/SPEC.md`) the test suite verifies byte-for-byte, published as a docs site. The JIT still runs a DMG-shaped workload at 2.06× and the Game Boy ROM at ~5.5 MHz, past original hardware (4.19 MHz).
 
 [inauguralsystems.com](https://inauguralsystems.com) · [@inauguralsys on X](https://x.com/inauguralsys) · [contact@inauguralsystems.com](mailto:contact@inauguralsystems.com)
 
