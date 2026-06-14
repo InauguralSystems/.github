@@ -2,7 +2,7 @@
 
 Creators of **EigenScript** — a zero-dependency C-implemented programming language with native observer semantics, training a model on its own code.
 
-**Currently shipping · v0.13.0** — a language-features release. Errors are now structured values: `throw of {…}` carries data through to `catch`, and uncaught failures print a full stack trace. `import` loads user modules, and the toolchain gained VS Code + Vim extensions, working LSP diagnostics, and an executable spec (`docs/SPEC.md`) the test suite verifies byte-for-byte, published as a docs site. The JIT still runs a DMG-shaped workload at 2.06× and the Game Boy ROM at ~5.5 MHz, past original hardware (4.19 MHz).
+**Currently shipping · v0.14.2** — the 0.14 line went public and built out the ecosystem. A native `--pkg` package manager (written in EigenScript itself) resolves git deps into `eigs_modules/` with a lockfile pinned by commit *and* tree hash, so `install`/`verify`/`update` are reproducible and a moved tag can't slip a different tree past the lock; no dependency code runs at install time. The project earned an OpenSSF Best Practices passing badge, runs CodeQL and a 7.5/10 Scorecard, and ships Sigstore-signed release binaries. macOS Intel is interpreter-only as of 0.14.2; Linux is unchanged and the Game Boy ROM still runs at ~5.5 MHz.
 
 [inauguralsystems.com](https://inauguralsystems.com) · [@inauguralsys on X](https://x.com/inauguralsys) · [contact@inauguralsystems.com](mailto:contact@inauguralsystems.com)
 
