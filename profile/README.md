@@ -2,7 +2,7 @@
 
 Creators of **EigenScript** — a zero-dependency C-implemented programming language with native observer semantics, training a model on its own code.
 
-**Currently shipping · v0.17.2** — the 0.17 line re-architected the observer itself. A dynamical-systems lab kept reporting `equilibrium` on solvers plainly at rest, which traced to observer state living on the recyclable, reference-shared `Value` object — so a convergence iterate built through aliasing temporaries (the normal solver shape) never accumulated its own trajectory and `converged` never fired. Observer state is now keyed to the variable *binding*, numbers are pure immediates, and the entire value-path observer model was deleted, leaving exactly one representation; those convergence loops now converge. The path here ran through a public C embedding API and multi-interpreter runtime (0.15), windowed observer predicates with a leak-and-DoS hardening pass (0.16), and a self-hosting compiler that reproduces the whole toolchain byte-for-byte. The project ships an OpenSSF Best Practices passing badge, CodeQL, a 7.5/10 Scorecard, and Sigstore-signed binaries for Linux and macOS (Intel JIT live since 0.15.2); the Game Boy ROM still runs past original-hardware speed.
+**Currently shipping · v0.24.0** — the 0.24 line hunted silent tolerance out of the runtime. The emblem case: the Game Boy emulator's sprite priorities were quietly wrong because `sort` — a builtin the emulator itself had demanded — returned "equal" for anything non-numeric and silently sorted nothing; the fix wave that followed made sort raise, made parser limits fail loudly by name, made parentheses always mean one argument, gave modules a write boundary so a loaded library can never clobber its caller's variables, and replaced queue-mode audio with a 16-channel mixer. Every change landed with the consumers: the same day v0.24.0 shipped, all ten downstream repos re-verified and moved to it, the self-hosting compiler re-proved its byte-exact bootstrap against the new oracle, and the bare-metal OS booted its full self-test ladder on the new runtime. The project ships an OpenSSF Best Practices passing badge, CodeQL, a 7.5/10 Scorecard, and Sigstore-signed binaries for Linux and macOS; the Game Boy ROM still runs past original-hardware speed.
 
 [inauguralsystems.com](https://inauguralsystems.com) · [@inauguralsys on X](https://x.com/inauguralsys) · [contact@inauguralsystems.com](mailto:contact@inauguralsystems.com)
 
@@ -10,7 +10,7 @@ Creators of **EigenScript** — a zero-dependency C-implemented programming lang
 
 ### Projects
 
-Five repositories driving each other. The language adds a primitive; the consumers immediately use it; gaps exposed downstream become the next features upstream.
+A portfolio of repositories driving each other. The language adds a primitive; the consumers immediately use it; gaps exposed downstream become the next features upstream — every consumer keeps a public ledger of the language gaps it forced.
 
 - **EigenScript** — the language. Single C binary, bytecode VM, JIT, observer semantics, tensor math, LSP, formatter, embedded DB.
 - **iLambdaAi** — self-training research system that trains a model on its own EigenScript source using observer semantics as the supervision signal.
@@ -21,6 +21,9 @@ Five repositories driving each other. The language adds a primitive; the consume
 Supporting:
 
 - **EigenGauntlet** — stress harness for root language/runtime gap discovery.
+- **EigenRegex** — Pike-VM regex engine (linear-time guarantee, no backtracking) in pure EigenScript.
+- **dynamics** — observer-rich dynamical-systems lab; the repo that forges the windowed convergence predicates.
+- **tidelog** — CBOR serialization + a crash-recoverable KV store, byte-identical across hosted and bare-metal runs.
 
 ---
 
