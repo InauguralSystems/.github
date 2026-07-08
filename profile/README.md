@@ -1,46 +1,49 @@
 ## Inaugural Systems
 
-Creators of **EigenScript** — a zero-dependency C-implemented programming language with native observer semantics, training a model on its own code.
+**Learning and innovating within constraints.**
 
-**Currently shipping · v0.26.0** — the 0.25/0.26 line made the freestanding and hosted runtimes agree byte-for-byte and cut a stdlib backlog drawn from the cross-repo pattern survey. The emblem case: `0xFF` had only ever parsed because glibc's `strtod` happens to accept hex, so the bare-metal OS lexed the same source as `0` plus an identifier `xFF` and every hex-using program broke on the metal; the fix made the lexer consume hex itself on every profile, made the `bit_*` builtins the same int64 two's-complement operation as the infix operators (a `(uint32_t)(int32_t)` conversion had been undefined behavior above 2^31, caught by a new CRC-32 module), and added an async abort seam so ctrl-c can break a runaway eval at the metal REPL. Seven new stdlib surfaces landed with it — CRC-32/Adler-32 checksums, civil-date math, packed BCD, bounded polling, hexdump, a twin-gate test harness, and named observer slots. Every change landed with the consumers: the same day v0.26.0 shipped, all ten downstream repos re-verified and moved to it, the self-hosting compiler re-proved its byte-exact bootstrap against the new oracle, and the bare-metal OS booted its full self-test ladder on the new runtime. The project ships an OpenSSF Best Practices passing badge, CodeQL, a 7.5/10 Scorecard, and Sigstore-signed binaries for Linux and macOS; the Game Boy ROM still runs past original-hardware speed.
+A one-person systems lab building an entire software stack from first principles — a language with native observer semantics, and the AI, game, emulator, and SAT solver that stress-test it. Every line was built on a 2007 dual-core Pentium laptop; the constraint is the method, not a limitation.
 
 [inauguralsystems.com](https://inauguralsystems.com) · [@inauguralsys on X](https://x.com/inauguralsys) · [contact@inauguralsystems.com](mailto:contact@inauguralsystems.com)
 
 ---
 
-### Projects
+### What's built
 
-A portfolio of repositories driving each other. The language adds a primitive; the consumers immediately use it; gaps exposed downstream become the next features upstream — every forcing-function consumer keeps a public ledger of the language gaps it forced.
+The runtime, and the programs that push it hard enough to expose its next gap — each forcing-function consumer keeps a public ledger of the language gaps it drove upstream.
 
-- **EigenScript** — the language. Single C binary, bytecode VM, JIT, observer semantics, tensor math, LSP, formatter, embedded DB.
-- **iLambdaAi** _(private)_ — self-training research system that trains a model on its own EigenScript source using observer semantics as the supervision signal.
-- **Tidepool** — Spore-inspired cell-stage evolution game written entirely in EigenScript, with an in-language DQN reinforcement-learning trainer.
-- **DMG** — Game Boy DMG emulator written in EigenScript as a deliberate worst-case workload for the language.
-- **EigenMiniSat** — MiniSat-style CDCL SAT solver in EigenScript with Glucose-style LBD clause management, plus a repeatable benchmark suite over self-generated instance families and a vendored DIMACS corpus.
+**The runtime**
 
-Supporting:
+- **EigenScript** — the language. A single zero-dependency C binary: bytecode VM, copy-and-patch JIT, native observer semantics, tensor math, a reversible trace tape, LSP, formatter, embedded DB.
 
-- **EigenGauntlet** — stress harness for root language/runtime gap discovery.
-- **EigenRegex** — Pike-VM regex engine (linear-time guarantee, no backtracking) in pure EigenScript.
-- **dynamics** — observer-rich dynamical-systems lab; the repo that forges the windowed convergence predicates.
-- **tidelog** — CBOR serialization + a crash-recoverable KV store, byte-identical across hosted and bare-metal runs.
+**Built with it — the forcing functions**
+
+- **Tidepool** — a Spore-inspired cell-stage evolution game with an in-language DQN reinforcement-learning trainer.
+- **DMG** — a Game Boy emulator built as a deliberate worst-case workload; runs past original-hardware speed through the JIT.
+- **EigenMiniSat** — a MiniSat-targeted CDCL SAT solver with Glucose-style LBD clause management and a repeatable benchmark suite.
+- **dynamics** — an observer-rich dynamical-systems lab; the repo that forged the windowed convergence predicates.
+- **EigenRegex** — a Pike-VM regex engine, linear-time, no backtracking.
+- **liferaft** — a deterministic simulation tester for the Raft consensus protocol, replayed byte-for-byte under injected chaos.
+- **tidelog** — CBOR serialization + a crash-recoverable store, byte-identical across hosted and bare-metal runs.
+- **EigenGauntlet** — a stress harness for root language/runtime gap discovery.
+
+**Research**
+
+- **iLambdaAi** _(private)_ — a self-training research system that trains a model on its own EigenScript source, using observer semantics as the supervision signal.
+
+The full release history lives in [the changelog on GitHub](https://github.com/InauguralSystems/EigenScript/releases).
 
 ---
 
-### Why EigenScript is open
+### Approach
 
-Through pre-1.0 the source stayed private on purpose: bugs got fixed at the root instead of papered over for downstream users, with no obligation to preserve old behavior. Every issue was corrected where it actually lived, the API tightened, and the language got cleaner with each version. That season is now historical — EigenScript is **public**. Read the source, build it yourself, and run the same binary that serves the landing page.
+Built private through pre-1.0 so bugs got fixed at the root instead of papered over for downstream users — every issue corrected where it actually lived, the API tightened, the language cleaner with each version. That season is historical: EigenScript is now **public**. Read the source, build it yourself, and run the same binary that serves the landing page.
 
----
-
-### Vision
-
-AI should be **dynamic**, not static.
-Our systems operate on **invariants**, allowing code to feel its own stability and momentum.
+The method is a loop — point a demanding workload at the runtime, and it turns up a real bug in a signature feature, fixed at the root, upstream, with a regression test. The systems operate on **invariants**, so code can feel its own stability and momentum: measurement, not guesswork.
 
 ---
 
 ### Founder
 
-**Jonathon McReynolds** ([@InauguralPhysicist](https://github.com/InauguralPhysicist))
-Army veteran · Cancer survivor · Self-taught physicist/engineer
+**Inaugural Physicist** ([@InauguralPhysicist](https://github.com/InauguralPhysicist)) — Jonathon McReynolds.
+Army veteran · cancer survivor · self-taught physicist and engineer.
