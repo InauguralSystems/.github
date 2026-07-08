@@ -45,5 +45,5 @@ The method is a loop — point a demanding workload at the runtime, and it turns
 
 ### Founder
 
-**Inaugural Physicist** ([@InauguralPhysicist](https://github.com/InauguralPhysicist)) — Jonathon McReynolds.
+**Inaugural Physicist** ([@InauguralPhysicist](https://github.com/InauguralPhysicist))
 Army veteran · cancer survivor · self-taught physicist and engineer.
