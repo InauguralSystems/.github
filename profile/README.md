@@ -18,6 +18,7 @@ The runtime, and the programs that push it hard enough to expose its next gap �
 
 **Built with it — the forcing functions**
 
+- **ouroboros** — a self-hosting compiler written in EigenScript: source to the C VM's exact bytecode, with a byte-exact bootstrap fixed point, plus a native AOT path diffed against the VM as oracle.
 - **Tidepool** — a Spore-inspired cell-stage evolution game with an in-language DQN reinforcement-learning trainer.
 - **DMG** — a Game Boy emulator built as a deliberate worst-case workload; runs past original-hardware speed through the JIT.
 - **EigenMiniSat** — a MiniSat-targeted CDCL SAT solver with Glucose-style LBD clause management and a repeatable benchmark suite.
